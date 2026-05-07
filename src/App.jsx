@@ -94,8 +94,15 @@ ${notes}`;
         
         <div className="mb-10">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">
-            AI Classroom Companion
+            StudySpark AI
           </h1>
+          <div className="flex justify-between items-center mb-10">
+  <h1 className="text-3xl font-bold">StudySpark AI</h1>
+
+  <div className="text-slate-400">
+    AI-Powered Learning Assistant
+  </div>
+</div>
 
           <p className="text-slate-400 text-lg">
             Turn raw lecture notes into summaries, quizzes, flashcards and simplified explanations using AI.
