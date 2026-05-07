@@ -1,16 +1,43 @@
-# React + Vite
+# StudySpark AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+StudySpark AI is an AI-powered classroom companion that transforms lecture notes into smart study material instantly.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- AI-generated summaries
+- Quiz generation
+- Flashcard creation
+- Simplified explanations
+- PDF note upload
+- Responsive modern UI
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Tailwind CSS
+- Groq API
+- React Markdown
 
-## Expanding the ESLint configuration
+## Live Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Deployed on Vercel.
+
+## Run Locally
+
+```bash
+npm install
+npm run dev
+```
+
+## Environment Variables
+
+Create a `.env` file:
+
+```env
+VITE_GROQ_API_KEY=your_api_key
+```
+
+## Project Goal
+
+The project aims to help students convert raw classroom notes into interactive learning resources using generative AI.
