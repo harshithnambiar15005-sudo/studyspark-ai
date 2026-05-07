@@ -11,6 +11,7 @@ const client = new OpenAI({
 
 function App() {
   const [notes, setNotes] = useState("");
+  const [pdfText, setPdfText] = useState("");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -21,14 +22,15 @@ function App() {
 
   try {
     const text = await pdfToText(file);
-    setNotes(text);
+    setPdfText(text);
   } catch (error) {
     console.error(error);
   }
 }
 
   async function generateContent(type) {
-    if (!notes) return;
+    const finalNotes = pdfText || notes;
+    if (!notes && !pdfText) return;
 
     setLoading(true);
     setOutput("");
@@ -38,13 +40,13 @@ function App() {
     if (type === "summary") {
       prompt = `Summarize these notes clearly with headings and bullet points:
 
-${notes}`;
+${finalNotes}`;
     }
 
     if (type === "quiz") {
       prompt = `Create 5 MCQ quiz questions with answers from these notes:
 
-${notes}`;
+${finalNotes}`;
     }
 
     if (type === "flashcards") {
@@ -54,13 +56,13 @@ Format:
 Q:
 A:
 
-${notes}`;
+${finalNotes}`;
     }
 
     if (type === "simple") {
       prompt = `Explain these notes like I'm 12 years old:
 
-${notes}`;
+${finalNotes}`;
     }
 
     try {
@@ -71,7 +73,7 @@ ${notes}`;
             content: prompt,
           },
         ],
-        model: "llama3-8b-8192",
+        model: "llama-3.1-8b-instant",
       });
 
       setOutput(chatCompletion.choices[0].message.content);
@@ -93,9 +95,7 @@ ${notes}`;
       <div className="max-w-6xl mx-auto">
         
         <div className="mb-10">
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">
-            StudySpark AI
-          </h1>
+          
           <div className="flex justify-between items-center mb-10">
   <h1 className="text-3xl font-bold">StudySpark AI</h1>
 
